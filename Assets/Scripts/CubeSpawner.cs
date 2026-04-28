@@ -1,21 +1,22 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
 
 public class CubeSpawner : MonoBehaviour
 { 
+    [SerializeField] private List<Cube> _cubes = new List<Cube>();
     [SerializeField] private int _spawnCountMin = 2;
     [SerializeField] private int _spawnCountMax = 6;
-    [SerializeField] float _scaleMultiplier = 1f;
+    [SerializeField] private float _scaleMultiplier = 1f;
 
     private void OnEnable()
     {
-        SubscribeExistingCubes();
+        CleanupDestroyedCubes();
+        SubscribeCubes();
     }
 
     private void OnDisable()
     {
-        UnsubscribeExistingCubes();
+        UnsubscribeCubes();
     }
 
     public void Spawn(Cube cube)
@@ -35,25 +36,35 @@ public class CubeSpawner : MonoBehaviour
         newCube.transform.localScale *= _scaleMultiplier;
         newCube.name = cube.name;
         newCube.OnClicked += Spawn;
+        newCube.OnBeforeDestroy += RemoveDestroyedCube;
+        _cubes.Add(newCube);
     }
-   
-    private void SubscribeExistingCubes()
-    {
-        List<Cube> cubes = FindObjectsByType<Cube>(FindObjectsSortMode.None).ToList();
 
-        foreach (Cube cube in cubes)
+    private void CleanupDestroyedCubes()
+    {
+        _cubes.RemoveAll(c => c == null);
+    }
+
+    private void RemoveDestroyedCube(Cube cube)
+    {
+        _cubes.Remove(cube);
+    }
+
+    private void SubscribeCubes()
+    {
+        foreach (Cube cube in _cubes)
         {
             cube.OnClicked += Spawn;
+            cube.OnBeforeDestroy += RemoveDestroyedCube;
         }
     }
 
-    private void UnsubscribeExistingCubes()
+    private void UnsubscribeCubes()
     {
-        List<Cube> cubes = FindObjectsByType<Cube>(FindObjectsSortMode.None).ToList();
-
-        foreach (Cube cube in cubes)
+        foreach (Cube cube in _cubes)
         {
             cube.OnClicked -= Spawn;
+            cube.OnBeforeDestroy -= RemoveDestroyedCube;
         }
     }
 }

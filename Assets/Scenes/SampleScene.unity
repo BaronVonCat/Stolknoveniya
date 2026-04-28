@@ -132,7 +132,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83092556}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -156,6 +156,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4867086009771679156, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
   m_PrefabInstance: {fileID: 1813862193}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &83092566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+  m_PrefabInstance: {fileID: 1813862193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83092556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613ab9765375f46acc173012604de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244018241
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,13 +614,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2067915467}
     m_Modifications:
+    - target: {fileID: -6620095820478213169, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _forc
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 2125169732}
     - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: ControlCubes
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _isGuaranteedSpawn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4168528133619392562, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: m_Name
@@ -978,13 +1001,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2067915467}
     m_Modifications:
+    - target: {fileID: -6620095820478213169, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _forc
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 2125169732}
     - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: ControlCubes
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _isGuaranteedSpawn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4168528133619392562, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: m_Name
@@ -1083,7 +1118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174225836}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1107,6 +1142,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4867086009771679156, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
   m_PrefabInstance: {fileID: 965159889}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1174225848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+  m_PrefabInstance: {fileID: 965159889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174225836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613ab9765375f46acc173012604de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217365286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4168528133619392562, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
@@ -1120,7 +1166,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217365286}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1144,6 +1190,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4867086009771679156, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
   m_PrefabInstance: {fileID: 414489951}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1217365296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+  m_PrefabInstance: {fileID: 414489951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217365286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613ab9765375f46acc173012604de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1813862193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1152,13 +1209,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2067915467}
     m_Modifications:
+    - target: {fileID: -6620095820478213169, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _forc
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 2125169732}
     - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _manager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: ControlCubes
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170750222763020382, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
+      propertyPath: _isGuaranteedSpawn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4168528133619392562, guid: 40a1634558c54104eb8da3c1847217e2, type: 3}
       propertyPath: m_Name
@@ -1354,7 +1423,7 @@ GameObject:
   - component: {fileID: 2125169731}
   - component: {fileID: 2125169732}
   m_Layer: 0
-  m_Name: Coub Spawner
+  m_Name: Cube Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1387,6 +1456,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbefbbbdd849734091d29c21d4ece96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cubes:
+  - {fileID: 1174225848}
+  - {fileID: 1217365296}
+  - {fileID: 83092566}
   _spawnCountMin: 2
   _spawnCountMax: 6
   _scaleMultiplier: 0.5

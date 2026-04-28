@@ -1,17 +1,25 @@
-using UnityEngine;
 using System;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Explosion))]
 public class Cube : MonoBehaviour
 {
-    private const float DividerTwo = 2;
+    private const float DividerHalf = 2;
 
-    [SerializeField] private CubeSpawner _spawner;
+    private Explosion _explosion;
+
     [SerializeField] private bool _isGuaranteedSpawn = false;
     [SerializeField] private float _chanceSpawn = 1f;
 
-    public UnityEvent OnBeforeDestroy;
+    public event Action<Cube> OnBeforeDestroy;
     public event Action<Cube> OnClicked;
+
+    private void Start()
+    {
+        _explosion = GetComponent<Explosion>();
+    }
 
     private void OnMouseDown()
     {
@@ -23,11 +31,12 @@ public class Cube : MonoBehaviour
         }
         else if (roll <= _chanceSpawn)
         {
-            _chanceSpawn /= DividerTwo;
+            _chanceSpawn /= DividerHalf;
             OnClicked?.Invoke(this);
         }
 
-        OnBeforeDestroy?.Invoke();
+        _explosion.Explode();
+        OnBeforeDestroy?.Invoke(this);
         Destroy(gameObject);
-    } 
+    }
 }

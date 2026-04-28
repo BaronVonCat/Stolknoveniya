@@ -3,12 +3,18 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class ColorChanger : MonoBehaviour
 {
+    private Renderer _renderer;
+
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+    }
+
     private void Start()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        Material newMaterial = new Material(renderer.material);
+        Material newMaterial = new Material(_renderer.material);
 
-        renderer.material = newMaterial;
+        _renderer.material = newMaterial;
         newMaterial.color = Random.ColorHSV();
     }
 }

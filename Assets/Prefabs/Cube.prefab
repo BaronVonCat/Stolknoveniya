@@ -123,7 +123,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4168528133619392562}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -154,23 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613ab9765375f46acc173012604de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawner: {fileID: 0}
+  _isGuaranteedSpawn: 0
   _chanceSpawn: 1
-  OnBeforeDestroy:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -6620095820478213169}
-        m_TargetAssemblyTypeName: Explosion, Assembly-CSharp
-        m_MethodName: Explode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &-6620095820478213169
 MonoBehaviour:
   m_ObjectHideFlags: 0

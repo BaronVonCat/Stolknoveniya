@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class Explosion  : MonoBehaviour
 {
     [SerializeField] private float _forc = 0;
     [SerializeField] float _radius = 0;
