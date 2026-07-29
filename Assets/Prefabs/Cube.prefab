@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1784517251431483067}
   - component: {fileID: 1283967547763329286}
   - component: {fileID: 3170750222763020382}
-  - component: {fileID: -6620095820478213169}
   - component: {fileID: 4756602794305951833}
   m_Layer: 0
   m_Name: Cube
@@ -154,23 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613ab9765375f46acc173012604de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGuaranteedSpawn: 0
-  _chanceSpawn: 1
---- !u!114 &-6620095820478213169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4168528133619392562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf74774891e01c445839379466812162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Explosion
-  _forc: 1000
-  _radius: 5
-  _upwardsModifier: 2
+  <ChanceSpawn>k__BackingField: 100
 --- !u!114 &4756602794305951833
 MonoBehaviour:
   m_ObjectHideFlags: 0

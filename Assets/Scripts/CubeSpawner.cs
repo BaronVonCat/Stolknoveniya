@@ -19,25 +19,32 @@ public class CubeSpawner : MonoBehaviour
         UnsubscribeCubes();
     }
 
-    public void Spawn(Cube cube)
+    public List<Cube> Spawn(Cube cube)
     {
+        List<Cube> cubes = new List<Cube>();
         int spawnCount = UnityEngine.Random.Range(_spawnCountMin, _spawnCountMax);
 
         for (int i = 0; i < spawnCount; i++)
         {
-            CreateCoub(cube);
+            cubes.Add(CreateCoub(cube));
         }
+
+        return cubes;
     }
 
-    private void CreateCoub(Cube cube)
+    private Cube CreateCoub(Cube cube)
     {
+        const float DividerHalf = 2;
+
         Cube newCube = Instantiate(cube);
 
+        newCube.Initialize(cube.ChanceSpawn/DividerHalf);
         newCube.transform.localScale *= _scaleMultiplier;
         newCube.name = cube.name;
-        newCube.OnClicked += Spawn;
-        newCube.OnBeforeDestroy += RemoveDestroyedCube;
+        newCube.Interacted += OnInteracted;
         _cubes.Add(newCube);
+
+        return newCube;
     }
 
     private void CleanupDestroyedCubes()
@@ -45,17 +52,11 @@ public class CubeSpawner : MonoBehaviour
         _cubes.RemoveAll(c => c == null);
     }
 
-    private void RemoveDestroyedCube(Cube cube)
-    {
-        _cubes.Remove(cube);
-    }
-
     private void SubscribeCubes()
     {
         foreach (Cube cube in _cubes)
         {
-            cube.OnClicked += Spawn;
-            cube.OnBeforeDestroy += RemoveDestroyedCube;
+            cube.Interacted += OnInteracted;
         }
     }
 
@@ -63,8 +64,14 @@ public class CubeSpawner : MonoBehaviour
     {
         foreach (Cube cube in _cubes)
         {
-            cube.OnClicked -= Spawn;
-            cube.OnBeforeDestroy -= RemoveDestroyedCube;
+            cube.Interacted -= OnInteracted;
         }
+    }
+
+    private void OnInteracted(Cube cube)
+    {
+        cube.Interacted -= OnInteracted;
+        _cubes.Remove(cube);
+        Destroy(cube.gameObject);
     }
 }
